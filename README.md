@@ -164,3 +164,21 @@ npm run dev:nodemon
 
 - Host: 127.0.0.1
 - Port: 6379
+
+## Project Roadmap & Status
+
+The core infrastructure (Queue, Worker, Strategy Pattern) is complete. I am currently transitioning from a "Simple Pipe" to an "Intelligent Dispatcher" to meet the full project requirements.
+
+### **Done**
+- Basic Producer-Consumer Architecture (Node.js + BullMQ).
+- Extensible Strategy Pattern for delivery providers.
+- Asynchronous persistence logic (MongoDB + Redis AOF).
+
+### **Current Focus**
+- **Notification Fan-out:** Implementing the logic to map 1 task update to 3-5 recipients (assignees, managers, watchers).
+- **User Preference Engine:** Filtering delivery channels based on individual user settings (Email vs. Push).
+
+### **Up Next**
+- **Intelligent Batching (Debouncing):** Developing a "buffer" mechanism to prevent user spam (e.g., grouping 10 updates into 1 notification).
+- **Urgency-Based Routing:** Prioritizing "Due in 1 hour" notifications over routine updates.
+- **Performance Benchmarking:** Load testing the system against the 40k/min burst scenario.
